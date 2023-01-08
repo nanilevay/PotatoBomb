@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public string PlayerName;
+    public StopWatch PlayerStopwatch;
+
+    public bool ActivePlayer;
+
+    public PlayerInfo(string Name)
+    {
+        PlayerName = Name;
+
+        ActivePlayer = false;
+    }
+
     void Start()
     {
         

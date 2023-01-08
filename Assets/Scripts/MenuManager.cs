@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public static bool Paused = false;
+    public bool Paused = false;
     public GameObject PauseMenu;
+
+
 
     private void Start()
     {
@@ -58,8 +60,8 @@ public class MenuManager : MonoBehaviour
         //Freezes time
         Time.timeScale = 0f;
         Paused = true;
+       
     }
-
     public void Continue()
     {
         //closes Pause panel
@@ -75,5 +77,11 @@ public class MenuManager : MonoBehaviour
         //Reloads Scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);  //has some problems? Idk why yu can't do anything when you reset =_=
         Debug.Log("Scene loaded."); 
+    }
+
+    public void EndGame()
+    {
+        //Reloads Scene
+        SceneManager.LoadScene(2);  
     }
 }
