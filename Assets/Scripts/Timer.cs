@@ -20,12 +20,18 @@ public class Timer : MonoBehaviour
 
     public GameManager Manager;
 
+    public GameObject Cover;
+
+    public float halftime;
+
     public void Start()
     {
-        randomNumber = UnityEngine.Random.Range(0, MinuteMargin);
+        randomNumber = UnityEngine.Random.Range(1, MinuteMargin);
         startMinutes = randomNumber;
         currentTime = startMinutes * 60;
         InitialSecs = currentTime * 1;
+        halftime = InitialSecs / 2;
+
     }
 
     void Update()
@@ -55,6 +61,11 @@ public class Timer : MonoBehaviour
         currentTimeText.text = time.ToString(@"mm\:ss");
 
         TimerImg.fillAmount -= 1.0f / InitialSecs * Time.deltaTime;
+
+        if(currentTime >= halftime - 1 && currentTime <= halftime + 1)
+        {
+            Cover.SetActive(true);
+        }
 
     }
 
